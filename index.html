@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Responsive product explorer demonstrating async JavaScript, REST APIs, filtering, sorting, and local storage.">
+  <title>Product Explorer | REST API Demo</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Product Explorer home"><span class="brand-mark">P</span> Product Explorer</a>
+    <div class="cart-summary" aria-live="polite">Cart <span id="cart-count">0</span></div>
+  </header>
+  <main class="container">
+    <section class="intro">
+      <p class="eyebrow">JAVASCRIPT · REST API · LOCAL STORAGE</p>
+      <h1>Find your next favorite.</h1>
+      <p class="intro-copy">Browse live product data, filter instantly, and save items to your cart.</p>
+    </section>
+
+    <section class="toolbar" aria-label="Product controls">
+      <label class="search-box">
+        <span class="sr-only">Search products</span>
+        <span aria-hidden="true">⌕</span>
+        <input id="search-input" type="search" placeholder="Search products…" autocomplete="off">
+      </label>
+      <label class="sort-control">Sort by
+        <select id="sort-select">
+          <option value="featured">Featured</option>
+          <option value="price-asc">Price: low to high</option>
+          <option value="price-desc">Price: high to low</option>
+          <option value="title-asc">Name: A to Z</option>
+          <option value="rating-desc">Top rated</option>
+        </select>
+      </label>
+    </section>
+
+    <nav id="category-tabs" class="category-tabs" aria-label="Filter by category">
+      <button class="category-tab active" data-category="all" aria-pressed="true">All products</button>
+    </nav>
+
+    <div id="error-banner" class="error-banner" role="alert" hidden>
+      <span id="error-message">Products could not be loaded.</span>
+      <button id="retry-button" class="retry-button">Try again</button>
+    </div>
+
+    <div class="results-row">
+      <p id="results-count" aria-live="polite">Loading products…</p>
+      <button id="clear-filters" class="text-button" hidden>Clear filters</button>
+    </div>
+
+    <section id="product-grid" class="product-grid" aria-label="Products">
+      <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
+    </section>
+    <p id="empty-state" class="empty-state" hidden>No products match your filters. Try another search.</p>
+    <footer>Demo data provided by <a href="https://fakestoreapi.com/" target="_blank" rel="noreferrer">Fake Store API</a>.</footer>
+  </main>
+</body>
+</html>
